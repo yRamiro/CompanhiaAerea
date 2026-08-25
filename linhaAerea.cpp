@@ -82,23 +82,28 @@ void cadastrarVoo() {
 } 
 
 void consultarVoo() { 
-    
-    int escolha;
+    int escolha = 1;
 
-    cout << "======= CONSULTAR VOO =======" << endl;
-    cout << " >>> VOOS DISPONIVEIS:" << endl; 
-    cout << " 0 - Voo " << LA1.num << endl; 
-    cout << "Digite o voo que deseja consultar: "; 
-    cin >> escolha; 
-    if (escolha == LA1.num) { 
-        cout << "Número do voo: " << LA1.num << endl;
-        cout << "Cidade origem: " << LA1.cidadeOr << endl; 
-        cout << "Cidade destino: " << LA1.cidadeDe << endl; 
-        cout << "Capacidade maxima da aeronave: " << LA1.quantMax << endl; 
-        cout << "Quantidade de assentos reservados: " << LA1.quantAtual << endl; 
-        cout << "Preço da passagem: $" << LA1.preco << endl; 
-    }
+    do {
+        cout << "======= CONSULTAR VOO =======" << endl;
+        cout << " >>> VOOS DISPONIVEIS:" << endl; 
+        cout << "Voo " << LA1.num << endl; 
+        cout << "Digite o voo que deseja consultar: "; 
+        cin >> escolha; 
+        if (escolha == LA1.num) { 
+            cout << "Número do voo: " << LA1.num << endl;
+            cout << "Cidade origem: " << LA1.cidadeOr << endl; 
+            cout << "Cidade destino: " << LA1.cidadeDe << endl; 
+            cout << "Capacidade maxima da aeronave: " << LA1.quantMax << endl; 
+            cout << "Quantidade de assentos reservados: " << LA1.quantAtual << endl; 
+            cout << "Preço da passagem: $" << LA1.preco << endl; 
+        }
 
-    cout << "Deseja consultar outro voo? ";
-    cin >> escolha;
+        cout << "Digite 1 para consultar outro voo, digite 0 para sair: " << endl;
+        cin >> escolha;
+        while (escolha > 1 || escolha < 0) { 
+            cout << "Digite uma opcao valida (0 - 1): " << endl; 
+            cin >> escolha;
+        }
+    }while (escolha == 1);
 }
